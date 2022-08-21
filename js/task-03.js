@@ -24,7 +24,8 @@ const images = [
 
 const galleryRel = document.querySelector('.gallery');
 galleryRel.style.display = 'flex';
-galleryRel.style.justifyContent = 'space-around';
+galleryRel.style.flexWrap = 'wrap';
+galleryRel.style.justifyContent = 'space-evenly';
 galleryRel.style.margin = '0';
 galleryRel.style.padding = '0';
 galleryRel.style.listStyle = 'none';
@@ -33,6 +34,7 @@ const storage = [];
 
 for (let i = 0; i < images.length; i += 1) {
   const li = document.createElement('li');
+  li.style.marginBottom = '20px';
   const image = document.createElement('img');
   image.src = images[i].url;
   image.alt = images[i].alt;
