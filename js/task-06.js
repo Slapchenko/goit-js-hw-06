@@ -25,12 +25,13 @@
 } */
 
 const textInputRef = document.querySelector('#validation-input');
-const inputMaxLengthRef = document.querySelector('#validation-input');
 
 textInputRef.addEventListener('focus', onFocusInput);
 textInputRef.addEventListener('blur', onBlurInput);
 
 function onBlurInput(event) {
+  if (event.currentTarget.value === '') return;
+
   event.currentTarget.value.length >= Number(textInputRef.getAttribute('data-length'))
     ? textInputRef.classList.add('valid')
     : textInputRef.classList.add('invalid');

@@ -30,7 +30,6 @@ function onFormSubmit(event) {
   const formData = { email, password };
 
   if (formData.email === '' || formData.password === '') {
-    formRef.reset();
     return alert('All fields are required to be completed');
   }
 
