@@ -7,6 +7,8 @@
 const rangeInputRef = document.querySelector('#font-size-control');
 const outputRef = document.querySelector('#text');
 
+rangeInputRef.setAttribute('value', `${rangeInputRef.min}`);
+
 rangeInputRef.addEventListener('input', onChangeRangeInput);
 
 function onChangeRangeInput(event) {
