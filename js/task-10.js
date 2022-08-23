@@ -24,15 +24,8 @@ const refs = {
   boxes: document.querySelector('#boxes'),
 };
 
-let counterValue = 0;
-
-refs.input.addEventListener('input', getValueInput);
 refs.createEl.addEventListener('click', createBoxes);
 refs.destroyEl.addEventListener('click', destroyBoxes);
-
-function getValueInput(event) {
-  counterValue = Number(event.currentTarget.value);
-}
 
 function createBoxes(amount) {
   const boxes = [];
@@ -50,7 +43,6 @@ function createBoxes(amount) {
       box.style.height = height + addValue + 'px';
       addValue += 10;
     } else {
-      console.log(parseInt(refs.boxes.lastChild.style.width));
       addValue += 10;
       box.style.width = parseInt(refs.boxes.lastChild.style.width) + addValue + 'px';
       box.style.height = parseInt(refs.boxes.lastChild.style.height) + addValue + 'px';
