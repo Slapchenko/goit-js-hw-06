@@ -24,11 +24,11 @@ const refs = {
   boxes: document.querySelector('#boxes'),
 };
 
+let counterValue = 0;
+
 refs.input.addEventListener('input', getValueInput);
 refs.createEl.addEventListener('click', createBoxes);
 refs.destroyEl.addEventListener('click', destroyBoxes);
-
-let counterValue = 0;
 
 function getValueInput(event) {
   counterValue = Number(event.currentTarget.value);
@@ -36,6 +36,7 @@ function getValueInput(event) {
 
 function createBoxes() {
   let sizeEl = 30;
+  const storageEl = [];
 
   for (let i = 0; i < counterValue; i += 1) {
     const div = document.createElement('div');
@@ -49,8 +50,10 @@ function createBoxes() {
       div.style.height = `${sizeEl}px`;
     }
 
-    refs.boxes.append(div);
+    storageEl.push(div.outerHTML);
   }
+
+  refs.boxes.insertAdjacentHTML('beforeend', storageEl.join(''));
 }
 
 function destroyBoxes() {
