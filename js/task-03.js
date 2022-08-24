@@ -30,18 +30,33 @@ galleryRel.style.margin = '0';
 galleryRel.style.padding = '0';
 galleryRel.style.listStyle = 'none';
 
-const storage = [];
-
-for (let i = 0; i < images.length; i += 1) {
+// *v1
+const addImages = images.map(element => {
   const li = document.createElement('li');
   li.style.marginBottom = '20px';
+
   const image = document.createElement('img');
-  image.src = images[i].url;
-  image.alt = images[i].alt;
+  image.src = element.url;
+  image.alt = element.alt;
   image.width = 320;
   image.height = 212;
-  li.appendChild(image);
-  storage.push(li.outerHTML);
-}
 
-galleryRel.insertAdjacentHTML('beforeend', storage.join(''));
+  li.appendChild(image);
+
+  return li.outerHTML;
+});
+
+galleryRel.insertAdjacentHTML('beforeend', addImages.join(''));
+
+// *v2
+// for (let i = 0; i < images.length; i += 1) {
+//   const li = document.createElement('li');
+//   li.style.marginBottom = '20px';
+//   const image = document.createElement('img');
+//   image.src = images[i].url;
+//   image.alt = images[i].alt;
+//   image.width = 320;
+//   image.height = 212;
+//   li.appendChild(image);
+//   storage.push(li.outerHTML);
+// }
