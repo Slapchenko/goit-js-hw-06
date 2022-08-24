@@ -7,15 +7,27 @@
 
 const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
 
-const ingredientsRel = document.querySelector('#ingredients');
+const listRef = document.querySelector('#ingredients');
 
-const storage = [];
+// ** v1
+const arrayOfItem = ingredients.map(element => {
+  const item = document.createElement('li');
+  item.textContent = element;
+  item.classList.add('item');
+  return item;
+});
 
-for (let i = 0; i < ingredients.length; i += 1) {
-  const li = document.createElement('li');
-  li.textContent = ingredients[i];
-  li.classList.add('item');
-  storage.push(li);
-}
+listRef.append(...arrayOfItem);
 
-ingredientsRel.append(...storage);
+// * v2
+// const storage = [];
+
+// for (let i = 0; i < ingredients.length; i += 1) {
+//   const li = document.createElement('li');
+//   li.textContent = ingredients[i];
+//   li.classList.add('item');
+//   storage.push(li);
+// }
+
+// ingredientsRef.append(...storage);
+// console.log(storage);
