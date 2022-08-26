@@ -31,9 +31,10 @@ galleryRel.style.padding = '0';
 galleryRel.style.listStyle = 'none';
 
 // *v1
-const createGalleryItemsMarkup = images.map(image => {
-  return `<li><img class = "gallery-item" src = "${image.url}" alt = "${image.alt}" style="width: 320px; height: 212px;"></li>`;
-});
+const createGalleryItemsMarkup = images.map(
+  image =>
+    `<li><img class = "gallery-item" src = "${image.url}" alt = "${image.alt}" style="width: 320px; height: 212px;"></li>`
+);
 
 galleryRel.insertAdjacentHTML('beforeend', createGalleryItemsMarkup.join(''));
 
